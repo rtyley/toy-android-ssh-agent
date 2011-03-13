@@ -12,22 +12,44 @@
     <artifactId>toy-ssh-agent</artifactId>
     <packaging>apk</packaging>
     <name>Toy ssh-agent for Android</name>
+    <description>
+        A very small, UI-less ssh-agent on Android, created for testing purposes only.
+        Don't use this for, um, real things.
+        At some point I might straighten it out into a reasonably secure app,
+        which would allow apps like ConnectBot to use it to manage ssh-keys.
+    </description>
+    <url>http://github.com/rtyley/toy-android-ssh-agent</url>
+    <licenses>
+        <license>
+            <name>GPL v3</name>
+            <url>http://www.gnu.org/licenses/gpl-3.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>roberto</id>
+            <name>Roberto Tyley</name>
+            <timezone>0</timezone>
+            <url>https://github.com/rtyley</url>
+        </developer>
+    </developers>
     <scm>
         <connection>scm:git:git@github.com:rtyley/toy-android-ssh-agent.git</connection>
         <developerConnection>scm:git:git@github.com:rtyley/toy-android-ssh-agent.git</developerConnection>
         <url>git@github.com:rtyley/toy-android-ssh-agent.git</url>
     </scm>
     <properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<android.version>2.2.1</android.version>
-	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>com.google.android</groupId>
-			<artifactId>android</artifactId>
-			<scope>provided</scope>
-			<version>${android.version}</version>
-		</dependency>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <android.version>2.2.1</android.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <scope>provided</scope>
+            <version>${android.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.madgag</groupId>
             <artifactId>ssh-android</artifactId>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">toy ssh-agent</string>
+    <string name="auth_agent_service_description">toy ssh-agent service</string>
+	<string name="ssh_agent_permission_label">use SSH keys stored in your SSH Agent</string>
+    <string name="ssh_agent_permission_desc">Allows the application to authenticate SSH transactions using your private keys stored in ConnectBot.
+    	VERY DANGEROUS if used by a malicious application.</string>
+</resources>

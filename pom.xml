@@ -87,7 +87,7 @@
         <dependency>
             <groupId>com.madgag</groupId>
             <artifactId>scprov-jdk15</artifactId>
-            <version>1.46.99.2-UNOFFICIAL-ROBERTO-RELEASE</version>
+            <version>1.46.99.3-UNOFFICIAL-ROBERTO-RELEASE</version>
         </dependency>
         <dependency>
             <groupId>com.google.collections</groupId>

@@ -19,44 +19,43 @@
 
 package com.madgag.ssh.toysshagent;
 
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.Security;
-import java.security.Signature;
-import java.security.SignatureException;
 
 import net.schmizz.sshj.common.Buffer.PlainBuffer;
 import net.schmizz.sshj.common.KeyType;
 
+import net.schmizz.sshj.signature.Signature;
+import net.schmizz.sshj.signature.SignatureDSA;
+import net.schmizz.sshj.signature.SignatureRSA;
 import org.spongycastle.jce.provider.BouncyCastleProvider;
+
+import static net.schmizz.sshj.common.KeyType.RSA;
 
 public class SshUtil {
 	static {
 		Security.addProvider(new BouncyCastleProvider());
 	}
-	
+
+    public PublicKey sshDecode(byte[] bytes) {
+		return new PlainBuffer(bytes).readPublicKey();
+	}
+
 	public byte[] sshEncode(PublicKey publicKey) {
 		return new PlainBuffer().putPublicKey(publicKey).getCompactData();
 	}
 	
 	public byte[] sign(byte[] data, PrivateKey privateKey) {
-		String keyTypeName = KeyType.fromKey(privateKey).toString();
-		try {
-			return new PlainBuffer().putString(keyTypeName).putBytes(rawSignatureFor(data, privateKey)).getCompactData();
+        KeyType keyType = KeyType.fromKey(privateKey);
+        try {
+            Signature signature = keyType== RSA?new SignatureRSA():new SignatureDSA();
+            signature.init(null, privateKey);
+            signature.update(data);
+            return new PlainBuffer().putString(keyType.toString()).putBytes(signature.sign()).getCompactData();
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-	}
-
-	byte[] rawSignatureFor(byte[] data, PrivateKey privateKey)
-			throws NoSuchAlgorithmException, InvalidKeyException,
-			SignatureException {
-		Signature signer = Signature.getInstance("SHA1withRSA");
-		signer.initSign(privateKey);
-		signer.update(data);
-		return signer.sign();
 	}
 
 }

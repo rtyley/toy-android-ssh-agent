@@ -83,7 +83,6 @@
             <artifactId>slf4j-nop</artifactId>
             <version>1.6.1</version>
         </dependency>
-
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-library</artifactId>
@@ -94,11 +93,6 @@
             <groupId>com.madgag</groupId>
             <artifactId>scprov-jdk15</artifactId>
             <version>1.46.99.3-UNOFFICIAL-ROBERTO-RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.collections</groupId>
-            <artifactId>google-collections</artifactId>
-            <version>1.0</version>
         </dependency>
         <dependency>
             <groupId>org.roboguice</groupId>

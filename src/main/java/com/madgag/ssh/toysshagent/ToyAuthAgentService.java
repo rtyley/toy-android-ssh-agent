@@ -35,9 +35,8 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.Security;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
-
-import static com.google.common.collect.Maps.newHashMap;
 
 public class ToyAuthAgentService extends Service {
 	
@@ -48,8 +47,8 @@ public class ToyAuthAgentService extends Service {
 	}
 	
 	private SshUtil sshUtil = new SshUtil();
-    Map<String, byte[]> sshEncodedPublicKeys = newHashMap();
-    Map<PublicKey, PrivateKey> publicPrivateMap = newHashMap();
+    Map<String, byte[]> sshEncodedPublicKeys = new HashMap<String, byte[]>();
+    Map<PublicKey, PrivateKey> publicPrivateMap = new HashMap<PublicKey, PrivateKey>();
 	
 	@Override
 	public void onCreate() {

@@ -23,6 +23,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.Security;
 
+import net.schmizz.sshj.common.Buffer;
 import net.schmizz.sshj.common.Buffer.PlainBuffer;
 import net.schmizz.sshj.common.KeyType;
 
@@ -38,7 +39,7 @@ public class SshUtil {
 		Security.addProvider(new BouncyCastleProvider());
 	}
 
-    public PublicKey sshDecode(byte[] bytes) {
+    public PublicKey sshDecode(byte[] bytes) throws Buffer.BufferException {
 		return new PlainBuffer(bytes).readPublicKey();
 	}
 

@@ -76,7 +76,7 @@
         <dependency>
             <groupId>net.schmizz</groupId>
             <artifactId>sshj</artifactId>
-            <version>0.3.1</version>
+            <version>0.7.0</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -95,16 +95,6 @@
             <version>1.46.99.3-UNOFFICIAL-ROBERTO-RELEASE</version>
         </dependency>
         <dependency>
-            <groupId>org.roboguice</groupId>
-            <artifactId>roboguice</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.inject</groupId>
-            <artifactId>guice</artifactId>
-            <version>2.0-no_aop</version>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.8.2</version>
@@ -117,23 +107,18 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <target>1.5</target>
-                    <source>1.5</source>
+                    <target>1.6</target>
+                    <source>1.6</source>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
-                <artifactId>maven-android-plugin</artifactId>
-                <version>2.9.0-beta-2</version>
+                <artifactId>android-maven-plugin</artifactId>
+                <version>3.1.1</version>
                 <configuration>
                     <sdk>
-                        <path>${user.home}/android-sdk/</path>
                         <platform>8</platform>
                     </sdk>
-                    <emulator>
-                        <avd>22</avd>
-                    </emulator>
-                    <deleteConflictingFiles>true</deleteConflictingFiles>
                     <extractDuplicates>true</extractDuplicates>
                 </configuration>
                 <extensions>true</extensions>
